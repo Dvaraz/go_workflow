@@ -1,12 +1,14 @@
-kind: Service
 apiVersion: v1
+kind: Service
 metadata:
-  name: go_hello_service
-  labels:
-    app: go_hello_service
+  name: hello-world-service
+  namespace: semenov
 spec:
   selector:
-    app: go_hello
+    app: hello-world-semenov
   ports:
-    - port: 81
-      targetPort: 8080
+    - protocol: TCP
+      port: 80
+      targetPort: 9090
+  type: ClusterIP
+
